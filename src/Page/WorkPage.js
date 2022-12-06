@@ -100,7 +100,7 @@ export default function WorkPage() {
                         <div className='project-container' key={indx} ref={addSlideUp} onClick={() => {
                             Navigate(`/${curr?._id}`);
                         }}>
-                            <img src={curr?.image} className="project-image" alt='phot' />
+                            <img src={"https://prajwolneupane-api.onrender.com/uploads/"+curr?.image} className="project-image" alt='phot' />
                             <h4 className='project-name'>
                                 {curr?.name}
                             </h4>

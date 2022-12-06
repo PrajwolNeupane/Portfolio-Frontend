@@ -91,7 +91,7 @@ export default function SkillPage() {
                                     backgroundColor: "primary.light"
                                 }
                             }} >
-                                <Avatar src={curr?.image} sx={{ width: { sm: "50px", xs: "40px" }, height: { sm: "50px", xs: "40px" } }} ref={addSlideUp} />
+                                <Avatar src={"https://prajwolneupane-api.onrender.com/uploads/"+curr?.image} sx={{ width: { sm: "50px", xs: "40px" }, height: { sm: "50px", xs: "40px" } }} ref={addSlideUp} />
                                 <Stack>
                                     <Typography variant='h4' sx={{ color: "white", fontSize: { md: "18px", sm: "16px", xs: "16px" } }} ref={addSlideUp}>
                                         {curr?.name}
