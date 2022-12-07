@@ -22,8 +22,15 @@ export default function AddSkillModal({ open, setOpen, setSkillUpload }) {
   const [img, setImg] = useState();
 
   function selectImage(e) {
+    var reader = new FileReader();
     if (e.target.files[0]) {
-      setImg(e.target.files[0]);
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = () => {
+        setImg(reader.result);
+      };
+      reader.onerror = error => {
+        console.log("Error: ", error);
+      };
     }
   }
 
@@ -36,9 +43,9 @@ export default function AddSkillModal({ open, setOpen, setSkillUpload }) {
     try {
       const res = await axios.post("https://prajwolneupane-api.onrender.com/skill/?api_key=mero-54321-app", {
         name: nameRef.current.value,
-        type:typeRef.current.value,
+        type: typeRef.current.value,
         image: img,
-        description:descriptionRef.current.value
+        description: descriptionRef.current.value
       }, {
         headers: {
           "Content-Type": "multipart/form-data"

@@ -27,25 +27,29 @@ export default function AddProjectModal({ open, setOpen, setProjectUpload }) {
   const descriptionRef = useRef();
   const [img, setImg] = useState([]);
 
-
-  function selectImage(e) {
+ function selectImage(e) {
+    var reader = new FileReader();
     if (e.target.files[0]) {
-      setImg(e.target.files[0]);
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = () => {
+        setImg(reader.result);
+      };
+      reader.onerror = error => {
+        console.log("Error: ", error);
+      };
+
     }
   }
+  //https://prajwolneupane-api.onrender.com/project/?api_key=mero-54321-app/project/
 
   const uploadProject = async () => {
     try {
-      const res = await axios.post("https://prajwolneupane-api.onrender.com/project/?api_key=mero-54321-app", {
+      const res = await axios.post("http://localhost:8000/?api_key=mero-54321-app/project/", {
         name: nameRef.current.value,
         description: descriptionRef.current.value,
         link: linkRef.current.value,
         tagline: tagLineRef.current.value,
         image: img
-      }, {
-        headers: {
-          "Content-Type": "multipart/form-data"
-        }
       });
       setProjectUpload(true);
     } catch (e) {
