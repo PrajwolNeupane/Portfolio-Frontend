@@ -40,11 +40,11 @@ export default function AddProjectModal({ open, setOpen, setProjectUpload }) {
 
     }
   }
-  //https://prajwolneupane-api.onrender.com/project/?api_key=mero-54321-app/project/
+
 
   const uploadProject = async () => {
     try {
-      const res = await axios.post("http://localhost:8000/?api_key=mero-54321-app/project/", {
+      const res = await axios.post("https://prajwolneupane-api.onrender.com/project/?api_key=mero-54321-app", {
         name: nameRef.current.value,
         description: descriptionRef.current.value,
         link: linkRef.current.value,
