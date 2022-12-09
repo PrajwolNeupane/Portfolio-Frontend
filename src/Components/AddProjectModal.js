@@ -29,6 +29,7 @@ export default function AddProjectModal({ open, setOpen, setProjectUpload }) {
   const descriptionRef = useRef();
   const [img, setImg] = useState([]);
 
+  //ds
   function selectImage(e) {
     if (e.target.files[0]) {
       setImg(e.target.files[0]);
