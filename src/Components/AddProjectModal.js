@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Modal, Box, Typography, InputBase, Button, TextField } from '@mui/material';
 import axios from 'axios';
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
-import { auth } from '../Firebase/firebase-config';
+import { auth } from '../Firebase/firebase-config.js';
 
 
 export default function AddProjectModal({ open, setOpen, setProjectUpload }) {
@@ -47,7 +47,7 @@ export default function AddProjectModal({ open, setOpen, setProjectUpload }) {
   const uploadProject = async () => {
     try {
       const storage = getStorage();
-      const fileRef = ref(storage, Date.now() + "-Project-" + Math.round(Math.random() * 10) + 'png');
+      const fileRef = ref(storage, Date.now() + "-Project-" + Math.round(Math.random() * 10) + '.png');
       const snapshot = await uploadBytes(fileRef, img);
       const photoURL = await getDownloadURL(fileRef);
       if (photoURL) {

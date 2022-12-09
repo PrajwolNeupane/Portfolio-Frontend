@@ -44,7 +44,7 @@ export default function AddSkillModal({ open, setOpen, setSkillUpload }) {
   const uploadSkill = async () => {
     try {
       const storage = getStorage();
-      const fileRef = ref(storage, Date.now() + "-Skill-" + Math.round(Math.random() * 10) + 'png');
+      const fileRef = ref(storage, Date.now() + "-Skill-" + Math.round(Math.random() * 10) + '.png');
       const snapshot = await uploadBytes(fileRef, img);
       const photoURL = await getDownloadURL(fileRef);
       if (photoURL) {
