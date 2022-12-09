@@ -24,15 +24,8 @@ export default function AddSkillModal({ open, setOpen, setSkillUpload }) {
   const [img, setImg] = useState();
 
   function selectImage(e) {
-    var reader = new FileReader();
     if (e.target.files[0]) {
-      reader.readAsDataURL(e.target.files[0]);
-      reader.onload = () => {
-        setImg(reader.result);
-      };
-      reader.onerror = error => {
-        console.log("Error: ", error);
-      };
+      setImg(e.target.files[0]);
     }
   }
 
