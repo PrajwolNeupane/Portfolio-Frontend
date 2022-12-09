@@ -27,7 +27,7 @@ function App() {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await axios.get("https://prajwolneupane-api.onrender.com/project/?api_key=mero-54321-app");
+        const res = await axios.get(`https://prajwolneupane-api.onrender.com/project/?api_key=${process.env.REACT_APP_API_KEY}`);
         dispatch(addProject(res.data));
       } catch (e) {
         console.log(e);
@@ -39,7 +39,7 @@ function App() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get("https://prajwolneupane-api.onrender.com/skill/?api_key=mero-54321-app");
+        const res = await axios.get(`https://prajwolneupane-api.onrender.com/skill/?api_key=${process.env.REACT_APP_API_KEY}`);
         dispatch(addSkill(res.data));
       } catch (e) {
         console.log(e);
@@ -56,7 +56,7 @@ function App() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get("https://prajwolneupane-api.onrender.com/message/?api_key=mero-54321-app");
+        const res = await axios.get(`https://prajwolneupane-api.onrender.com/message/?api_key=${process.env.REACT_APP_API_KEY}`);
         dispatch(addMessage(res.data));
       } catch (e) {
         console.log(e);

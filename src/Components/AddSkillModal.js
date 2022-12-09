@@ -5,6 +5,7 @@ import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import { auth } from '../Firebase/firebase-config';
 
 
+
 export default function AddSkillModal({ open, setOpen, setSkillUpload }) {
 
   const style = {
@@ -41,15 +42,11 @@ export default function AddSkillModal({ open, setOpen, setSkillUpload }) {
       const snapshot = await uploadBytes(fileRef, img);
       const photoURL = await getDownloadURL(fileRef);
       if (photoURL) {
-        const res = await axios.post("https://prajwolneupane-api.onrender.com/skill/?api_key=mero-54321-app", {
+        const res = await axios.post(`https://prajwolneupane-api.onrender.com/skill/?api_key=${process.env.API_KEY}`, {
           name: nameRef.current.value,
           type: typeRef.current.value,
           image: photoURL,
           description: descriptionRef.current.value
-        }, {
-          headers: {
-            "Content-Type": "multipart/form-data"
-          }
         });
         setSkillUpload(true);
       }
