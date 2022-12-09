@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { Modal, Box, Typography, InputBase, Button } from '@mui/material';
 import axios from 'axios';
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import { auth } from '../Firebase/firebase-config';
 
 
 export default function AddSkillModal({ open, setOpen, setSkillUpload }) {
@@ -41,17 +43,23 @@ export default function AddSkillModal({ open, setOpen, setSkillUpload }) {
 
   const uploadSkill = async () => {
     try {
-      const res = await axios.post("https://prajwolneupane-api.onrender.com/skill/?api_key=mero-54321-app", {
-        name: nameRef.current.value,
-        type: typeRef.current.value,
-        image: img,
-        description: descriptionRef.current.value
-      }, {
-        headers: {
-          "Content-Type": "multipart/form-data"
-        }
-      });
-      setSkillUpload(true);
+      const storage = getStorage();
+      const fileRef = ref(storage, Date.now() + "-Skill-" + Math.round(Math.random() * 10) + 'png');
+      const snapshot = await uploadBytes(fileRef, img);
+      const photoURL = await getDownloadURL(fileRef);
+      if (photoURL) {
+        const res = await axios.post("https://prajwolneupane-api.onrender.com/skill/?api_key=mero-54321-app", {
+          name: nameRef.current.value,
+          type: typeRef.current.value,
+          image: photoURL,
+          description: descriptionRef.current.value
+        }, {
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
+        });
+        setSkillUpload(true);
+      }
     } catch (e) {
 
     }

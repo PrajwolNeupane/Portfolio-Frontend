@@ -29,7 +29,7 @@ export default function SingleProject() {
                         <Link to="/">Go to HomePage</Link>
                     </> : <><Typography variant='h4' sx={{ fontSize: "25px" }}>{data?.name?.toUpperCase()}</Typography>
                         <Stack sx={{ width: "80%", padding: { md: "25px 50px", sm: "15px 30px", xs: "15px 30px" }, margin: "0px auto", backgroundColor: "secondary.main", flexDirection: { md: "row", sm: "column" }, gap: "50px" }}>
-                            <img src={"https://prajwolneupane-api.onrender.com"+data?.image} style={{ width: "55%" }} />
+                            <img src={data?.image} style={{ width: "55%" }} />
                             <Stack>
                                 <Typography variant='h4' sx={{ fontSize: "20px" }}>{data?.name}</Typography>
                                 <Typography variant='h5' sx={{ fontSize: "18px" }}>{data?.tagline}</Typography>
