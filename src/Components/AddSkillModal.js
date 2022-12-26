@@ -42,7 +42,7 @@ export default function AddSkillModal({ open, setOpen, setSkillUpload }) {
       const snapshot = await uploadBytes(fileRef, img);
       const photoURL = await getDownloadURL(fileRef);
       if (photoURL) {
-        const res = await axios.post(`https://prajwolneupane-api.onrender.com/skill/?api_key=${process.env.API_KEY}`, {
+        const res = await axios.post(`${process.env.REACT_APP_API}skill/?api_key=${process.env.REACT_APP_API_KEY}`, {
           name: nameRef.current.value,
           type: typeRef.current.value,
           image: photoURL,

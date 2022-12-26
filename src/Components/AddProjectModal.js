@@ -44,7 +44,7 @@ export default function AddProjectModal({ open, setOpen, setProjectUpload }) {
       const snapshot = await uploadBytes(fileRef, img);
       const photoURL = await getDownloadURL(fileRef);
       if (photoURL) {
-        const res = await axios.post(`https://prajwolneupane-api.onrender.com/project/?api_key=${process.env.REACT_APP_API_KEY}`, {
+        const res = await axios.post(`${process.env.REACT_APP_API}project/?api_key=${process.env.REACT_APP_API_KEY}`, {
           name: nameRef.current.value,
           description: descriptionRef.current.value,
           link: linkRef.current.value,

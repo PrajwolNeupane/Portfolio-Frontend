@@ -24,7 +24,7 @@ export default function ContactPage() {
 
     const sendMessage = async () => {
         try {
-            const res = await axios.post("https://prajwolneupane-api.onrender.com/message/?api_key=mero-54321-app", messageData);
+            const res = await axios.post(`${process.env.REACT_APP_API}message/?api_key=${process.env.REACT_APP_API_KEY}`, messageData);
             setMessageData({});
 
         } catch (e) {

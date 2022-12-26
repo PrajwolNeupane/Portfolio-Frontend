@@ -11,7 +11,7 @@ export default function SingleProject() {
     useEffect(() => {
         const getData = async () => {
             try {
-                const res = await axios.get(`https://prajwolneupane-api.onrender.com/project/${id}?api_key=${process.env.REACT_APP_API_KEY}`);
+                const res = await axios.get(`${process.env.REACT_APP_API}project/${id}?api_key=${process.env.REACT_APP_API_KEY}`);
                 setData(res.data);
             } catch (e) {
                 console.log(e);
