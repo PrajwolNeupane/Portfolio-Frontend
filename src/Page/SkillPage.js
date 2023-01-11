@@ -76,7 +76,7 @@ export default function SkillPage() {
     return (
         <Stack sx={{ width: { md: "70%", sm: "80%" }, padding: { md: "50px 15%", sm: "50px 10%", xs: "50px 10%" }, backgroundColor: "primary.main", minHeight: "400px" }} id="skill">
             <Typography variant='h4' sx={{ fontSize: "13px", letterSpacing: "3px", position: "absolute", left: "5%", top: "1760px", transform: "rotate(-90deg)", zIndex: 2, display: { md: "block", sm: "none", xs: "none" } }} ref={aboutRef}>SKILLS //</Typography>
-            <Box sx={{ backgroundColor: "primary.light", width: "20px", height: "60px", position: "absolute", left: "7.1%", top: "1760px", zIndex: "1", opacity: "0", display: { md: "block", sm: "none", xs: "none" } }} ref={boxRef}></Box>
+            <Box sx={{ backgroundColor: "primary.light", width: "20px", height: "70px", position: "absolute", left: "7.1%", top: "109rem", zIndex: "1", opacity: "0", display: { md: "block", sm: "none", xs: "none" } }} ref={boxRef}></Box>
             <Typography variant='h3' sx={{
                 fontSize: "30px", color: "white", "&:hover": {
                     transform: "scale(1.1)"

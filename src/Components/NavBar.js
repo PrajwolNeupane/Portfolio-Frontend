@@ -33,7 +33,7 @@ export default function NavBar() {
 
     return (
         <>
-            <Stack sx={{ flexDirection: {sm:"row",xs:"column"}, display: "flex", padding: { lg: "30px 7%", md: "30px 5%", sm: "30px 3%" }, alignItems: "center", justifyContent: "space-between", width: {lg:"86%",md:"90%",sm:"94%"}, position: "sticky", top: "0px", backgroundColor: "white", zIndex: 2 }}>
+            <Stack sx={{ flexDirection: {sm:"row",xs:"column"}, display: "flex", padding: { lg: "30px 7%", md: "30px 5%", sm: "30px 3%" }, alignItems: "center", justifyContent: "space-between", width: {lg:"86%",md:"90%",sm:"94%"}, position: "sticky", top: "0px", backgroundColor: "white", zIndex: 4 }}>
                 <Typography variant='h3' sx={{ fontSize: "40px", transform: "rotate(0deg)", cursor: "pointer" ,color:"transparent"}} onClick={() => {
                     Navigate("/");
                 }} className="color">PN</Typography>
