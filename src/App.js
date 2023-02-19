@@ -18,6 +18,7 @@ import axios from 'axios';
 import Wrapper from "./Components/Wrapper";
 import AdminPage from "./Page/AdminPage";
 import { addUser } from "./State Management/Features/User/UserSlice";
+import {projectData} from './data.js';
 
 function App() {
 
@@ -26,14 +27,9 @@ function App() {
 
   useEffect(() => {
     const getProduct = async () => {
-      try {
-        const res = await axios.get(`${process.env.REACT_APP_API}project/?api_key=${process.env.REACT_APP_API_KEY}`);
-        dispatch(addProject(res.data));
-      } catch (e) {
-        console.log(e);
-      }
+      dispatch(addProject(projectData));
     }
-    getProduct(); 
+    getProduct();
   }, []);
 
   useEffect(() => {
