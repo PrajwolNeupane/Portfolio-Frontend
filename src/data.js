@@ -1,4 +1,4 @@
-export const porjectData = [
+export const projectData = [
     {
         id: 1,
         name: "Corona Tracker",
