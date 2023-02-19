@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { Modal, Box, Typography, InputBase, Button, TextField } from '@mui/material';
 import axios from 'axios';
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import { auth } from '../Firebase/firebase-config.js';
 
 
 export default function AddProjectModal({ open, setOpen, setProjectUpload }) {
@@ -27,27 +29,30 @@ export default function AddProjectModal({ open, setOpen, setProjectUpload }) {
   const descriptionRef = useRef();
   const [img, setImg] = useState([]);
 
-
+  //ds
   function selectImage(e) {
     if (e.target.files[0]) {
       setImg(e.target.files[0]);
     }
   }
 
+
   const uploadProject = async () => {
     try {
-      const res = await axios.post("https://prajwolneupane-api.onrender.com/project/?api_key=mero-54321-app", {
-        name: nameRef.current.value,
-        description: descriptionRef.current.value,
-        link: linkRef.current.value,
-        tagline: tagLineRef.current.value,
-        image: img
-      }, {
-        headers: {
-          "Content-Type": "multipart/form-data"
-        }
-      });
-      setProjectUpload(true);
+      const storage = getStorage();
+      const fileRef = ref(storage, Date.now() + "-Project-" + Math.round(Math.random() * 10) + '.png');
+      const snapshot = await uploadBytes(fileRef, img);
+      const photoURL = await getDownloadURL(fileRef);
+      if (photoURL) {
+        const res = await axios.post(`${process.env.REACT_APP_API}project/?api_key=${process.env.REACT_APP_API_KEY}`, {
+          name: nameRef.current.value,
+          description: descriptionRef.current.value,
+          link: linkRef.current.value,
+          tagline: tagLineRef.current.value,
+          image: photoURL
+        });
+        setProjectUpload(true);
+      }
     } catch (e) {
 
     }

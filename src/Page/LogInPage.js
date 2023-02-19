@@ -19,7 +19,7 @@ export default function LogInPage() {
 
         const logIn = async () => {
             try{
-                const res = await axios.post("https://prajwolneupane-api.onrender.com/user/login/?api_key=mero-54321-app",logData);
+                const res = await axios.post(`${process.env.REACT_APP_API}user/login/?api_key=${process.env.REACT_APP_API_KEY}`,logData);
                 if(res.data.token){
                     setCookie("user",res.data.token);
                     dispatch(addUser(res.data.token));

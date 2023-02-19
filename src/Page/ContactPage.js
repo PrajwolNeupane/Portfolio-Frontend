@@ -24,7 +24,7 @@ export default function ContactPage() {
 
     const sendMessage = async () => {
         try {
-            const res = await axios.post("https://prajwolneupane-api.onrender.com/message/?api_key=mero-54321-app", messageData);
+            const res = await axios.post(`${process.env.REACT_APP_API}message/?api_key=${process.env.REACT_APP_API_KEY}`, messageData);
             setMessageData({});
 
         } catch (e) {
@@ -83,8 +83,8 @@ export default function ContactPage() {
 
     return (
         <Stack sx={{ width: "70%", padding: "50px 15%", backgroundColor: "primary.main", minHeight: "500px", gap: "10px" }} id="contact">
-            <Typography variant='h4' sx={{ fontSize: "13px", letterSpacing: "3px", position: "absolute", left: "4%", top: "2960px", transform: "rotate(-90deg)", zIndex: 2 ,display:{md:"block",sm:"none",xs:"none"}}} ref={aboutRef}>CONTACT //</Typography>
-            <Box sx={{ backgroundColor: "primary.light", width: "20px", height: "60px", position: "absolute", left: "7.1%", top: "2960px", zIndex: "1", opacity: "0" ,display:{md:"block",sm:"none",xs:"none"}}} ref={boxRef}></Box>
+            <Typography variant='h4' sx={{ fontSize: "13px", letterSpacing: "3px", position: "absolute", left: "4%", top: "195rem", transform: "rotate(-90deg)", zIndex: 2 ,display:{md:"block",sm:"none",xs:"none"}}} ref={aboutRef}>CONTACT //</Typography>
+            <Box sx={{ backgroundColor: "primary.light", width: "20px", height: "60px", position: "absolute", left: "7.1%", top: "195rem", zIndex: "1", opacity: "0" ,display:{md:"block",sm:"none",xs:"none"}}} ref={boxRef}></Box>
             <Typography variant='h3' sx={{
                 fontSize: "30px", color: "white",
             }} ref={addSlideUp}>CONTACT</Typography>

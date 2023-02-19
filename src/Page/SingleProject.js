@@ -11,7 +11,7 @@ export default function SingleProject() {
     useEffect(() => {
         const getData = async () => {
             try {
-                const res = await axios.get(`https://prajwolneupane-api.onrender.com/project/${id}?api_key=mero-54321-app`);
+                const res = await axios.get(`${process.env.REACT_APP_API}project/${id}?api_key=${process.env.REACT_APP_API_KEY}`);
                 setData(res.data);
             } catch (e) {
                 console.log(e);
@@ -29,7 +29,7 @@ export default function SingleProject() {
                         <Link to="/">Go to HomePage</Link>
                     </> : <><Typography variant='h4' sx={{ fontSize: "25px" }}>{data?.name?.toUpperCase()}</Typography>
                         <Stack sx={{ width: "80%", padding: { md: "25px 50px", sm: "15px 30px", xs: "15px 30px" }, margin: "0px auto", backgroundColor: "secondary.main", flexDirection: { md: "row", sm: "column" }, gap: "50px" }}>
-                            <img src={"https://prajwolneupane-api.onrender.com"+data?.image} style={{ width: "55%" }} />
+                            <img src={data?.image} style={{ width: "55%" }} />
                             <Stack>
                                 <Typography variant='h4' sx={{ fontSize: "20px" }}>{data?.name}</Typography>
                                 <Typography variant='h5' sx={{ fontSize: "18px" }}>{data?.tagline}</Typography>
