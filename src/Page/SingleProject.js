@@ -2,20 +2,21 @@ import { Stack, Typography } from '@mui/material';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 export default function SingleProject() {
 
     const { id } = useParams();
     const [data, setData] = useState({});
+    const {project} = useSelector((state) => state.Project)
     useEffect(() => {
         const getData = async () => {
-            try {
-                const res = await axios.get(`${process.env.REACT_APP_API}project/${id}?api_key=${process.env.REACT_APP_API_KEY}`);
-                setData(res.data);
-            } catch (e) {
-                console.log(e);
-            }
+            setData(project.filter(function(curr){
+                if(curr._id == id){
+                    return curr;
+                }
+            }));
         }
         getData();
     }, []);
