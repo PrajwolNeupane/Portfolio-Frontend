@@ -1,4 +1,4 @@
-import { Stack, Typography } from '@mui/material'
+import { Stack, Typography } from '@mui/material';
 import React, { useEffect } from 'react';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -7,6 +7,7 @@ import { Link } from "react-scroll";
 import { useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger, Power4 } from 'gsap/all';
+import Info from './Info';
 
 
 
@@ -32,12 +33,13 @@ export default function NavBar() {
     }, []);
 
     return (
-        <>
-            <Stack sx={{ flexDirection: {sm:"row",xs:"column"}, display: "flex", padding: { lg: "30px 7%", md: "30px 5%", sm: "30px 3%" }, alignItems: "center", justifyContent: "space-between", width: {lg:"86%",md:"90%",sm:"94%"}, position: "sticky", top: "0px", backgroundColor: "white", zIndex: 4 }}>
-                <Typography variant='h3' sx={{ fontSize: "40px", transform: "rotate(0deg)", cursor: "pointer" ,color:"transparent"}} onClick={() => {
+        <Stack sx={{ flexDirection: "column" ,position:"sticky",top:"0px",zIndex: 4}}>
+            <Info />
+            <Stack sx={{ flexDirection: { sm: "row", xs: "column" }, display: "flex", padding: { lg: "30px 7%", md: "30px 5%", sm: "30px 3%" }, alignItems: "center", justifyContent: "space-between", width: { lg: "86%", md: "90%", sm: "94%" }, backgroundColor: "white" }}>
+                <Typography variant='h3' sx={{ fontSize: "40px", transform: "rotate(0deg)", cursor: "pointer", color: "transparent" }} onClick={() => {
                     Navigate("/");
                 }} className="color">PN</Typography>
-                <Stack sx={{ flexDirection: "row", gap: { lg: "10%", xs: "4%" }, width: {lg:"50%",md:"60%",sm:"70%",sx:"80%",xs:"90%"}, marginLeft: {lg:"40%",md:"30%",sm:"20%",xs:"auto"} }}>
+                <Stack sx={{ flexDirection: "row", gap: { lg: "10%", xs: "4%" }, width: { lg: "50%", md: "60%", sm: "70%", sx: "80%", xs: "90%" }, marginLeft: { lg: "40%", md: "30%", sm: "20%", xs: "auto" } }}>
                     <Stack sx={{ alignItems: "center" }}>
                         <Link to="home" spy={true} smooth={true} offset={-65} duration={500}><Typography variant='h4' sx={{ fontSize: "14px", color: "primary.light", cursor: "pointer" }}>HOME</Typography></Link>
                     </Stack>
@@ -63,6 +65,6 @@ export default function NavBar() {
                     <a href="https://www.facebook.com/prajwolxhettry/" target={"_blank"} rel="noreferrer"><FacebookIcon sx={{ fontSize: "26px", color: "primary.main" }} /></a>
                 </Stack>
             </Stack>
-        </>
+        </Stack>
     )
 }

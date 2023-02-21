@@ -24,9 +24,7 @@ export default function ContactPage() {
 
     const sendMessage = async () => {
         try {
-            const res = await axios.post(`${process.env.REACT_APP_API}message/?api_key=${process.env.REACT_APP_API_KEY}`, messageData);
-            setMessageData({});
-
+            alert("Since this site is the static version, you cannot send messages.");
         } catch (e) {
             console.log(e);
         }
