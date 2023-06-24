@@ -91,8 +91,8 @@ export default function WorkPage() {
 
     return (
         <Stack sx={{ width: {lg:"70%",md:"70%",sm:"80%"}, padding: {md:"50px 15%",sm:"50px 5%",xs:"50px 5%"}, backgroundColor: "white", minHeight: "400px" }} id="project">
-            <Typography variant='h4' sx={{ fontSize: "13px", letterSpacing: "3px", position: "absolute", left: "4%", top: "2260px", transform: "rotate(-90deg)", zIndex: 2, color: "primary.main",display:{md:"block",sm:"none",xs:"none"} }} >PROJECTS //</Typography>
-            <Box sx={{ backgroundColor: "#e3e3e3", width: "20px", height: "60px", position: "absolute", left: "7.1%", top: "142rem", zIndex: "1", opacity: "0" ,display:{md:"block",sm:"none",xs:"none"}}} ref={boxRef}></Box>
+            <Typography variant='h4' sx={{ fontSize: "13px", letterSpacing: "3px", position: "absolute", left: "4%", top: "161rem", transform: "rotate(-90deg)", zIndex: 2, color: "primary.main",display:{md:"block",sm:"none",xs:"none"} }} >PROJECTS //</Typography>
+            <Box sx={{ backgroundColor: "#e3e3e3", width: "20px", height: "60px", position: "absolute", left: "7.1%", top: "160rem", zIndex: "1", opacity: "0" ,display:{md:"block",sm:"none",xs:"none"}}} ref={boxRef}></Box>
             <Typography variant='h3' sx={{ fontSize: "30px" }} ref={aboutRef} className="fade">PROJECT</Typography>
             <div className='project-div'>
                 {
